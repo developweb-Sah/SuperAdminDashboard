@@ -3,7 +3,8 @@ import { Table } from "react-bootstrap";
 import axios from "axios";
 import { useState } from "react";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
-import "./App.css";
+import "../App.css";
+import { Link } from "react-router-dom";
 
 function Main() {
   const [items, setItems] = useState([]);
@@ -29,11 +30,9 @@ function Main() {
   //   newTodos.splice(index, 1);
   //   setItems(newTodos);
   // };
-  const deleteContact = () => {
+  const deleteContact = (id) => {
     axios
-      .delete(
-        "https://project-rah.herokuapp.com/api/hospital/delete/<:hospital_id>"
-      )
+      .delete(`https://project-rah.herokuapp.com/api/hospital/delete/${id}`)
       .then((res) => {
         const items = res.data;
         setItems({ items });
@@ -86,12 +85,18 @@ function Main() {
                 <td>{item.contact_number}</td>
                 <td>{item.createdAt}</td>
                 <td>
-                  <button type="button" className="btn" onClick={deleteContact}>
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={() => deleteContact(item?._id)}
+                  >
                     <i class="fas fa-trash-alt"></i>
                   </button>
                 </td>
                 <td>
-                  <i className="fas fa-pencil-alt px-2"></i>
+                  <Link to={`/admin/update/${item?._id}`}>
+                    <i className="fas fa-pencil-alt px-2"></i>
+                  </Link>
                 </td>
               </tr>
             ))}

@@ -1,9 +1,9 @@
 import "./App.css";
 import Sidebar from "./SuperAdminSidebar/Sidebar.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Heading from "./SuperAdminHeading/Heading";
-import SuperAdminDashboard from "./SuperAdminDashboard";
-import PendingWishlist from "./SuperAdminPendingWishlist";
+import Heading from "./Heading/Heading";
+import SuperAdminDashboard from "./Dashboard/SuperAdminDashboard";
+import PendingWishlist from "./PendingWishlist/SuperAdminPendingWishlist";
 
 function App() {
   return (

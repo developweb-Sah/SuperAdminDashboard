@@ -106,7 +106,14 @@ const Sidebar = () => {
             ))}
           </NavLink>
 
-          <NavLink exact to="/profile" activeClassName="">
+          <NavLink
+            exact
+            to="/profile"
+            activeClassName=""
+            // onClick={() => {
+            //   window.location.href = "https://rah108.in/admin";
+            // }}
+          >
             {["Profile"].map((placement) => (
               <OverlayTrigger
                 key={placement}

@@ -2,9 +2,9 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import axios from "axios";
 import { useState } from "react";
-import { ToggleButton } from "./SuperAdminToggleButton";
+import { ToggleButton } from "../Dashboard/SuperAdminToggleButton";
 import { Button, InputGroup, FormControl } from "react-bootstrap";
-import "./App.css";
+import "../App.css";
 
 function PendingWishlist() {
   const [items, setItems] = useState([]);
@@ -23,11 +23,9 @@ function PendingWishlist() {
     .then(function () {});
   //  <:hospital_id
 
-  const deleteContact = () => {
+  const deleteContact = (id) => {
     axios
-      .delete(
-        "https://project-rah.herokuapp.com/api/hospital/delete/<:hospital_id>"
-      )
+      .delete(`https://project-rah.herokuapp.com/api/hospital/delete/${id}`)
       .then((res) => {
         const items = res.data;
         setItems({ items });
@@ -83,7 +81,7 @@ function PendingWishlist() {
                     <button
                       type="button"
                       className="btn"
-                      onClick={deleteContact}
+                      onClick={() => deleteContact(item?._id)}
                     >
                       <i class="fas fa-trash-alt"></i>
                       <br></br>
