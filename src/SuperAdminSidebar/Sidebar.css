@@ -1,0 +1,14 @@
+.SuperAdmin_Sidebar_hospital_icon {
+  margin: 10px;
+}
+.navcolor {
+  text-decoration: none;
+  color: hsl(229, 41%, 95%);
+}
+.navcolor--active {
+  text-decoration: none;
+  color: rgb(240, 11, 11);
+}
+.sidebar {
+  background-color: rgb(38, 53, 68);
+}

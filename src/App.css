@@ -1,0 +1,112 @@
+.App {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 8%;
+
+  display: flex;
+}
+.head {
+  width: 92%;
+  display: flex;
+}
+
+.main_box {
+  box-shadow: 1px 1px 1px 1px #d0d5dd;
+}
+.main_box_border {
+  border: #d0d5dd;
+}
+.main_button {
+  display: flex;
+  width: 100%;
+}
+.main_button_start {
+  flex: 50%;
+}
+.main_buttom_search {
+  border: 1px solid #d0d5dd;
+  padding: 3px;
+  width: 20px;
+}
+.main_button_search {
+  width: 60vh;
+  text-align: left;
+}
+.main_button_Archive {
+  width: 40vh;
+}
+.hospital_numbers {
+  font-size: 12px;
+  position: absolute;
+  padding-left: 6px;
+  color: #1faf9f;
+}
+.pencil,
+.trash {
+  padding-left: 10px;
+}
+.userListEdit {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-right: 5px;
+  color: #666;
+  background-color: #fff;
+}
+.userListDelete {
+  cursor: pointer;
+  color: #666;
+}
+.status-bar.active {
+  color: rgb(113, 206, 144);
+  font-size: 12px;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  font-weight: 600;
+}
+.status-bar.inactive {
+  color: rgb(211, 173, 90);
+  font-size: 12px;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  font-weight: 600;
+  border-radius: 5%;
+}
+.status-bar .fa-circle {
+  font-size: 6px;
+  margin-left: 5px;
+  margin: 7px;
+}
+.fa-circle {
+  margin-left: 5px;
+}
+.approval-status {
+  font-weight: 600;
+  color: #555;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.approval-status.pending {
+}
+.fa-toggle-on {
+  color: rgba(101, 158, 16, 0.747);
+  font-size: 20px;
+}
+.fa-toggle-off {
+  color: #555;
+  font-size: 20px;
+}
+.main_button_end {
+  display: flex;
+}
+.btn-success:hover {
+  height: 55px;
+}
