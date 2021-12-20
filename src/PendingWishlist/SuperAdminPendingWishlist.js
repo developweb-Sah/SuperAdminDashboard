@@ -3,12 +3,16 @@ import { Table } from "react-bootstrap";
 import axios from "axios";
 import { useState } from "react";
 import { ToggleButton } from "../Dashboard/SuperAdminToggleButton";
-import { Button, InputGroup, FormControl } from "react-bootstrap";
+import { Button, InputGroup, FormControl, Modal } from "react-bootstrap";
 import "../App.css";
 
 function PendingWishlist() {
   const [items, setItems] = useState([]);
   const [toggle, settoggle] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   axios
     .get("https://project-rah.herokuapp.com/api/hospital/all")
@@ -81,11 +85,26 @@ function PendingWishlist() {
                     <button
                       type="button"
                       className="btn"
-                      onClick={() => deleteContact(item?._id)}
+                      // onClick={() => deleteContact(item?._id)}
+                      onClick={handleShow}
                     >
                       <i class="fas fa-trash-alt"></i>
                       <br></br>
                     </button>
+                    {/* Model */}
+                    <Modal show={show} onHide={handleClose}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Are you Sure to Delete?</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                          Yes
+                        </Button>
+                        <Button variant="secondary" onClick={handleClose}>
+                          No
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
                   </td>
                 </tr>
               ))}

@@ -2,12 +2,25 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import axios from "axios";
 import { useState } from "react";
-import { Button, InputGroup, FormControl } from "react-bootstrap";
+import { Button, InputGroup, FormControl, Modal } from "react-bootstrap";
 import "../App.css";
 import { Link } from "react-router-dom";
+import Pagination from "react-js-pagination";
+// import "bootstrap/less/bootstrap.less";
 
 function Main() {
   const [items, setItems] = useState([]);
+  // const [page, setPage] = useState(15);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // Pagination
+  // const handlePageChange = (pageNumber) => {
+  //   console.log(`active page is ${pageNumber}`);
+  //   setPage(pageNumber);
+  // };
 
   axios
     .get("https://project-rah.herokuapp.com/api/hospital/all")
@@ -88,13 +101,28 @@ function Main() {
                   <button
                     type="button"
                     className="btn"
-                    onClick={() => deleteContact(item?._id)}
+                    // onClick={() => deleteContact(item?._id)}
+                    onClick={handleShow}
                   >
                     <i class="fas fa-trash-alt"></i>
                   </button>
+                  {/* Model */}
+                  <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Are you Sure to Delete?</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleClose}>
+                        Yes
+                      </Button>
+                      <Button variant="secondary" onClick={handleClose}>
+                        No
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
                 </td>
                 <td>
-                  <Link to={`/admin/update/${item?._id}`}>
+                  <Link to={`/admin/${item?._id}`}>
                     <i className="fas fa-pencil-alt px-2"></i>
                   </Link>
                 </td>
